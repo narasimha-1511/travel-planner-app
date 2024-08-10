@@ -155,3 +155,53 @@ body {
 .map-container h3 {
   margin-bottom: 10px;
 }
+
+.packing-list {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.add-item-form {
+  margin-bottom: 20px;
+}
+
+.add-item-form input,
+.add-item-form select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.category-section {
+  margin-bottom: 20px;
+}
+
+.category-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.category-section li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.category-section li.packed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.category-section li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.category-section li button {
+  margin-left: 10px;
+  background-color: #ff4136;
+  color: white;
+  border: none;
+  padding: 2px 5px;
+  cursor: pointer;
+}

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import ItineraryItem from "./ItineraryItem";
 import Weather from "./Weather";
 import Map from "./Map";
+import PackingList from "./ PackingList";
 
 function TripDetails({ trips, updateTrip }) {
   const { id } = useParams();
@@ -56,6 +57,12 @@ function TripDetails({ trips, updateTrip }) {
     updateTrip(updatedTrip);
   };
 
+  const updatePackingList = (newPackingList) => {
+    const updatedTrip = { ...trip, packingList: newPackingList };
+    setTrip(updatedTrip);
+    updateTrip(updatedTrip);
+  };
+
   if (!trip) return <div>Trip not found</div>;
 
   return (
@@ -98,6 +105,11 @@ function TripDetails({ trips, updateTrip }) {
         <h3>Destination Map</h3>
         <Map destination={trip.destination} />
       </div>
+
+      <PackingList
+        packingList={trip.packingList || []}
+        updatePackingList={updatePackingList}
+      />
 
       <h3>Itinerary</h3>
       <div className="itinerary-form">
