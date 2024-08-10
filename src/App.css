@@ -82,3 +82,34 @@ body {
   cursor: pointer;
   margin-right: 10px;
 }
+
+.itinerary-form {
+  margin-bottom: 20px;
+}
+
+.itinerary-form input {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.itinerary-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.itinerary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.itinerary-item button {
+  background-color: #ff4136;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

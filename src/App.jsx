@@ -9,7 +9,7 @@ function App() {
   const [trips, setTrips] = useState([]);
 
   const addTrip = (newTrip) => {
-    setTrips([...trips, { ...newTrip, id: Date.now() }]);
+    setTrips([...trips, { ...newTrip, id: Date.now(), itinerary: [] }]);
   };
 
   const updateTrip = (updatedTrip) => {
