@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ItineraryItem from "./ItineraryItem";
+import Weather from "./Weather";
 
 function TripDetails({ trips, updateTrip }) {
   const { id } = useParams();
@@ -89,6 +90,8 @@ function TripDetails({ trips, updateTrip }) {
           <button onClick={handleEdit}>Edit</button>
         </>
       )}
+
+      <Weather destination={trip.destination} />
 
       <h3>Itinerary</h3>
       <div className="itinerary-form">
