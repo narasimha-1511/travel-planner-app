@@ -40,7 +40,7 @@ body {
 }
 
 .trip-form button {
-  background-color: #61dafb;
+  background-color: #35545c;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -56,4 +56,29 @@ body {
   border: 1px solid #ddd;
   margin-bottom: 10px;
   padding: 10px;
+}
+
+.trip-list li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.trip-details {
+  margin-top: 20px;
+}
+
+.trip-details input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.trip-details button {
+  background-color: #101b1e;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px;
 }

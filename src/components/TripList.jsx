@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function TripList({ trips }) {
   return (
@@ -10,10 +11,12 @@ function TripList({ trips }) {
         <ul>
           {trips.map((trip) => (
             <li key={trip.id}>
-              <h3>{trip.destination}</h3>
-              <p>
-                {trip.startDate} - {trip.endDate}
-              </p>
+              <Link to={`/trip/${trip.id}`}>
+                <h3>{trip.destination}</h3>
+                <p>
+                  {trip.startDate} - {trip.endDate}
+                </p>
+              </Link>
             </li>
           ))}
         </ul>
