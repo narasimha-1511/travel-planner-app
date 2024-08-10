@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ItineraryItem from "./ItineraryItem";
 import Weather from "./Weather";
+import Map from "./Map";
 
 function TripDetails({ trips, updateTrip }) {
   const { id } = useParams();
@@ -92,6 +93,11 @@ function TripDetails({ trips, updateTrip }) {
       )}
 
       <Weather destination={trip.destination} />
+
+      <div className="map-container">
+        <h3>Destination Map</h3>
+        <Map destination={trip.destination} />
+      </div>
 
       <h3>Itinerary</h3>
       <div className="itinerary-form">
