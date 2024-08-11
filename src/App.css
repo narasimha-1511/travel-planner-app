@@ -205,3 +205,58 @@ body {
   padding: 2px 5px;
   cursor: pointer;
 }
+
+.budget-tracker {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.budget-summary {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.add-expense-form {
+  margin-bottom: 20px;
+}
+
+.add-expense-form input,
+.add-expense-form select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.expense-list .category-section {
+  margin-bottom: 15px;
+}
+
+.expense-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.expense-list li button {
+  background-color: #ff4136;
+  color: white;
+  border: none;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.set-budget {
+  margin-top: 20px;
+}
+
+.set-budget input {
+  margin-right: 10px;
+  padding: 5px;
+}

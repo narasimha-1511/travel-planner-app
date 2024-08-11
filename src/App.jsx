@@ -11,7 +11,13 @@ function App() {
   const addTrip = (newTrip) => {
     setTrips([
       ...trips,
-      { ...newTrip, id: Date.now(), itinerary: [], packingList: [] },
+      {
+        ...newTrip,
+        id: Date.now(),
+        itinerary: [],
+        packingList: [],
+        budget: { totalBudget: 0, expenses: [] },
+      },
     ]);
   };
 

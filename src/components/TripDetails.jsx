@@ -3,7 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import ItineraryItem from "./ItineraryItem";
 import Weather from "./Weather";
 import Map from "./Map";
-import PackingList from "./ PackingList";
+import PackingList from "./PackingList";
+import BudgetTracker from "./BudgetTracker";
 
 function TripDetails({ trips, updateTrip }) {
   const { id } = useParams();
@@ -63,6 +64,26 @@ function TripDetails({ trips, updateTrip }) {
     updateTrip(updatedTrip);
   };
 
+  const updateBudget = (newBudget) => {
+    const updatedTrip = { ...trip, budget: newBudget };
+    setTrip(updatedTrip);
+    updateTrip(updatedTrip);
+  };
+
+  const [isSettingBudget, setIsSettingBudget] = useState(false);
+  const [totalBudget, setTotalBudget] = useState(
+    trip?.budget?.totalBudget || 0
+  );
+
+  const handleSetBudget = () => {
+    const updatedBudget = {
+      ...trip.budget,
+      totalBudget: parseFloat(totalBudget),
+    };
+    updateBudget(updatedBudget);
+    setIsSettingBudget(false);
+  };
+
   if (!trip) return <div>Trip not found</div>;
 
   return (
@@ -110,6 +131,26 @@ function TripDetails({ trips, updateTrip }) {
         packingList={trip.packingList || []}
         updatePackingList={updatePackingList}
       />
+
+      {isSettingBudget ? (
+        <div className="set-budget">
+          <input
+            type="number"
+            value={totalBudget}
+            onChange={(e) => setTotalBudget(e.target.value)}
+            placeholder="Enter total budget"
+          />
+          <button onClick={handleSetBudget}>Set Budget</button>
+        </div>
+      ) : (
+        <button onClick={() => setIsSettingBudget(true)}>
+          {trip.budget?.totalBudget ? "Update Budget" : "Set Budget"}
+        </button>
+      )}
+
+      {trip.budget?.totalBudget && (
+        <BudgetTracker budget={trip.budget} updateBudget={updateBudget} />
+      )}
 
       <h3>Itinerary</h3>
       <div className="itinerary-form">
