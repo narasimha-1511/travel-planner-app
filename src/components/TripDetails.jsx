@@ -3,9 +3,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import ItineraryItem from "./ItineraryItem";
 import Weather from "./Weather";
 import Map from "./Map";
-import PackingList from "./ PackingList";
+import PackingList from "./PackingList";
 import BudgetTracker from "./BudgetTracker";
 import PhotoGallery from "./PhotoGallery";
+import { db } from "../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useAuth } from "../contexts/AuthContext";
 
 function TripDetails({ trips, updateTrip }) {
   const { id } = useParams();
@@ -13,6 +16,8 @@ function TripDetails({ trips, updateTrip }) {
   const [trip, setTrip] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [newItem, setNewItem] = useState({ activity: "", date: "" });
+  const { currentUser } = useAuth();
+  const [sharedWith, setSharedWith] = useState("");
 
   useEffect(() => {
     const foundTrip = trips.find((t) => t.id === parseInt(id));
@@ -91,6 +96,17 @@ function TripDetails({ trips, updateTrip }) {
     setIsSettingBudget(false);
   };
 
+  const handleShare = async () => {
+    if (sharedWith) {
+      const tripRef = doc(db, "trips", trip.id);
+      await updateDoc(tripRef, {
+        sharedWith: [...trip.sharedWith, sharedWith],
+      });
+      setSharedWith("");
+      // Update local state or refetch trip data
+    }
+  };
+
   if (!trip) return <div>Trip not found</div>;
 
   return (
@@ -160,6 +176,17 @@ function TripDetails({ trips, updateTrip }) {
       )}
 
       <PhotoGallery photos={trip.photos || []} updatePhotos={updatePhotos} />
+
+      <div className="share-trip">
+        <h3>Share Trip</h3>
+        <input
+          type="email"
+          value={sharedWith}
+          onChange={(e) => setSharedWith(e.target.value)}
+          placeholder="Enter email to share with"
+        />
+        <button onClick={handleShare}>Share</button>
+      </div>
 
       <h3>Itinerary</h3>
       <div className="itinerary-form">
