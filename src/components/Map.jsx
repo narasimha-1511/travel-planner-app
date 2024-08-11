@@ -6,6 +6,7 @@ const containerStyle = {
   height: "400px",
 };
 
+// nned a map api key over here also the weather api key
 const API_KEY = "YOUR_GOOGLE_MAPS_API_KEY";
 
 function Map({ destination }) {

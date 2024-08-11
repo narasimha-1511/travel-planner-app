@@ -3,8 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import ItineraryItem from "./ItineraryItem";
 import Weather from "./Weather";
 import Map from "./Map";
-import PackingList from "./PackingList";
+import PackingList from "./ PackingList";
 import BudgetTracker from "./BudgetTracker";
+import PhotoGallery from "./PhotoGallery";
 
 function TripDetails({ trips, updateTrip }) {
   const { id } = useParams();
@@ -66,6 +67,12 @@ function TripDetails({ trips, updateTrip }) {
 
   const updateBudget = (newBudget) => {
     const updatedTrip = { ...trip, budget: newBudget };
+    setTrip(updatedTrip);
+    updateTrip(updatedTrip);
+  };
+
+  const updatePhotos = (newPhotos) => {
+    const updatedTrip = { ...trip, photos: newPhotos };
     setTrip(updatedTrip);
     updateTrip(updatedTrip);
   };
@@ -151,6 +158,8 @@ function TripDetails({ trips, updateTrip }) {
       {trip.budget?.totalBudget && (
         <BudgetTracker budget={trip.budget} updateBudget={updateBudget} />
       )}
+
+      <PhotoGallery photos={trip.photos || []} updatePhotos={updatePhotos} />
 
       <h3>Itinerary</h3>
       <div className="itinerary-form">

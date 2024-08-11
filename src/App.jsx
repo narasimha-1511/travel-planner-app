@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TripList from "./components/TripList";
 import TripForm from "./components/TripForm";
 import TripDetails from "./components/TripDetails";
+
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         itinerary: [],
         packingList: [],
         budget: { totalBudget: 0, expenses: [] },
+        photos: [],
       },
     ]);
   };
