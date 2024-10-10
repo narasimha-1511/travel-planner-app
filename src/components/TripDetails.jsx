@@ -94,8 +94,11 @@ function TripDetails({ trips, updateTrip }) {
   if (!trip) return <div>Trip not found</div>;
 
   return (
-    <div className="trip-details">
-      <button onClick={() => navigate("/")}>Back to Trips</button>
+    <div className="font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%]">
+      <button onClick={() => navigate("/")} className="justify-center flex mx-auto rounded-custom-button bg-[#5A617E] w-60 py-1 text-[#FBFBEF] text-[24px] lg:text-[36px]">Back to Trips</button>
+      <div className="bg-[#5A617E] mt-5 text-[#FBFBEF] text-[24px] lg:text-[36px] p-5 rounded-custom-div">
+
+      
       {isEditing ? (
         <>
           <input
@@ -126,11 +129,14 @@ function TripDetails({ trips, updateTrip }) {
           <button onClick={handleEdit}>Edit</button>
         </>
       )}
+      </div>
+      <div className="bg-[#5A617E] mt-5 text-[#FBFBEF] text-[24px] lg:text-[36px] p-5 rounded-custom-div">
+        <Weather destination={trip.destination} />
+      </div>
+      
 
-      <Weather destination={trip.destination} />
-
-      <div className="map-container">
-        <h3>Destination Map</h3>
+      <div className="bg-[#5A617E] mt-5 text-[#FBFBEF] text-[24px] lg:text-[36px] p-5 rounded-custom-div">
+        <h3 className="font-bold">Destination Map</h3>
         <Map destination={trip.destination} />
       </div>
 

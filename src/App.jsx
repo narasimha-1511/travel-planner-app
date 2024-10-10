@@ -29,7 +29,7 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen items-center justify-center bg-[url('assets/Map.svg')] bg-cover">
+      <div className="pb-10 flex flex-col min-h-screen items-center justify-center bg-[url('assets/Map.svg')] bg-cover bg-fixed">
         <header className="text-[#FBFBEF] pt-10 pb-10 sm:pb-5 sm:pt-5 text-center flex w-full justify-center content-center items-center mx-auto">
           <Link to="/">
             <img src="TravelLogo.png" alt="Travel Logo" className="h-auto w-80" />
