@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import TripList from "./components/TripList";
 import TripForm from "./components/TripForm";
 import TripDetails from "./components/TripDetails";
-
-import "./App.css";
 
 function App() {
   const [trips, setTrips] = useState([]);
@@ -31,18 +29,24 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>Travel Planner</h1>
+      <div className="flex flex-col min-h-screen items-center justify-center bg-[url('assets/Map.svg')] bg-cover">
+        <header className="text-[#FBFBEF] pt-10 pb-10 sm:pb-5 sm:pt-5 text-center flex w-full justify-center content-center items-center mx-auto">
+          <Link to="/">
+            <img src="TravelLogo.png" alt="Travel Logo" className="h-auto w-80" />
+          </Link>
         </header>
-        <main>
+        <main className="flex-grow flex flex-col items-center pt-5 w-full">
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  <TripForm addTrip={addTrip} />
-                  <TripList trips={trips} />
+                  <div className="bg-[#5A617E] rounded-custom-div font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%] shadow-lg">
+                    <TripForm addTrip={addTrip} />
+                  </div>
+                  <div className="bg-[#5A617E] rounded-custom-div font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%] shadow-lg mt-5">
+                    <TripList trips={trips} />
+                  </div>
                 </>
               }
             />
