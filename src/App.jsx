@@ -41,10 +41,10 @@ function App() {
               path="/"
               element={
                 <>
-                  <div className="bg-[#5A617E] rounded-custom-div font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%] shadow-lg">
+                  <div className="bg-[#5A617E] border-white border-4 rounded-custom-div font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%] shadow-lg">
                     <TripForm addTrip={addTrip} />
                   </div>
-                  <div className="bg-[#5A617E] rounded-custom-div font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%] shadow-lg mt-5">
+                  <div className="bg-[#5A617E] border-white border-4 rounded-custom-div font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%] shadow-lg mt-5">
                     <TripList trips={trips} />
                   </div>
                 </>

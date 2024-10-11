@@ -40,7 +40,7 @@ function TripForm({ addTrip }) {
         onChange={(e) => setEndDate(e.target.value)}
         required
       />
-      <button className="justify-center flex mx-auto rounded-custom-button bg-[#151E41] w-52 py-1 text-[#FBFBEF] text-[24px] lg:text-[36px]" type="submit">Confirm</button>
+      <button className="hover:bg-[#5A617E] hover:text-[#151E41] hover:border-[#151E41] font-bold border-[#FBFBEF] border-4 justify-center flex mx-auto rounded-custom-button bg-[#151E41] w-52 py-1 text-[#FBFBEF] text-[24px] lg:text-[36px]" type="submit">Confirm</button>
     </form>
   );
 }

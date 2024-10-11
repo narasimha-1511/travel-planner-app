@@ -20,18 +20,24 @@ function PhotoGallery({ photos, updatePhotos }) {
   };
 
   return (
-    <div className="photo-gallery">
-      <h3>Photo Gallery</h3>
-      <input type="file" accept="image/*" onChange={handleFileUpload} />
-      <div className="photo-grid">
+    <div>
+      <h3 className="font-bold text-3xl md:text-4xl lg:text-5xl mb-3">Photo Gallery</h3>
+      <input type="file" accept="image/*" onChange={handleFileUpload} className="text-[18px] lg:text-[22px]" />
+      <div className="photo-grid grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
         {photos.map((photo) => (
-          <div key={photo.id} className="photo-item">
+          <div key={photo.id} className="relative">
             <img
+              className="h-auto max-w-full rounded-lg flex mx-auto"
               src={photo.src}
               alt="Trip"
               onClick={() => setSelectedPhoto(photo)}
             />
-            <button onClick={() => handleDeletePhoto(photo.id)}>Delete</button>
+            <button
+              onClick={() => handleDeletePhoto(photo.id)}
+              className="absolute top-2 right-2 bg-red-500 text-white rounded-lg p-2"
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
