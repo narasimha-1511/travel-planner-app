@@ -48,15 +48,17 @@ function BudgetTracker({ budget, updateBudget }) {
   const remainingBudget = budget.totalBudget - totalExpenses;
 
   return (
-    <div className="budget-tracker">
-      <h3>Budget Tracker</h3>
+    <div className="mt-3">
+      <h3 className="font-bold text-3xl md:text-4xl lg:text-5xl mb-3">Budget Tracker</h3>
       <div className="budget-summary">
         <p>Total Budget: ${budget.totalBudget}</p>
         <p>Total Expenses: ${totalExpenses.toFixed(2)}</p>
         <p>Remaining: ${remainingBudget.toFixed(2)}</p>
       </div>
-      <div className="add-expense-form">
+      <hr className="border-2 my-4 border-[#FBFBEF]"></hr>
+      <div className="mt-3">
         <input
+          className="w-full rounded-lg mb-3 p-1 pl-3 text-[24px] lg:text-[36px] text-[#151E41] focus:outline-[#151E41]"
           type="text"
           value={newExpense.description}
           onChange={(e) =>
@@ -65,6 +67,7 @@ function BudgetTracker({ budget, updateBudget }) {
           placeholder="Expense description"
         />
         <input
+          className="w-full rounded-lg mb-3 p-1 pl-3 text-[24px] lg:text-[36px] text-[#151E41] focus:outline-[#151E41]"
           type="number"
           value={newExpense.amount}
           onChange={(e) =>
@@ -73,6 +76,7 @@ function BudgetTracker({ budget, updateBudget }) {
           placeholder="Amount"
         />
         <select
+          className="w-full rounded-lg p-1 text-[24px] lg:text-[36px] text-[#151E41] focus:outline-[#151E41]"
           value={newExpense.category}
           onChange={(e) =>
             setNewExpense({ ...newExpense, category: e.target.value })
@@ -84,23 +88,25 @@ function BudgetTracker({ budget, updateBudget }) {
             </option>
           ))}
         </select>
-        <button onClick={handleAddExpense}>Add Expense</button>
+        <button onClick={handleAddExpense} className="w-full mt-4 font-bold border-[#FBFBEF] border-4 text-bold rounded-custom-button bg-[#151E41] py-1 text-[#FBFBEF] hover:bg-[#5A617E] hover:text-[#151E41] hover:border-[#151E41] text-[24px] lg:text-[36px]">Add Expense</button>
       </div>
-      <div className="expense-list">
-        <h4>Expenses</h4>
+      <hr className="border-2 my-4 border-[#FBFBEF]"></hr>
+      <div>
+        <h4 className="font-bold text-3xl md:text-4xl lg:text-5xl mb-5">Expenses</h4>
         {expenseCategories.map((category) => (
           <div key={category} className="category-section">
             <h5>{category}</h5>
-            <ul>
+            <hr className="w-[50%] border-2 border-[#FBFBEF]" />
+            <ul className="mb-3">
               {budget.expenses &&
                 budget.expenses
                   .filter((expense) => expense.category === category)
                   .map((expense) => (
-                    <li key={expense.id}>
+                    <li key={expense.id} className="flex justify-between items-center">
                       <span>{expense.description}</span>
                       <span>${expense.amount.toFixed(2)}</span>
-                      <button onClick={() => handleDeleteExpense(expense.id)}>
-                        Delete
+                      <button onClick={() => handleDeleteExpense(expense.id)} className="font-bold hover:text-red-600">
+                        X
                       </button>
                     </li>
                   ))}
