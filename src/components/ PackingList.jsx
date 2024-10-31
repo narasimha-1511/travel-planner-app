@@ -11,14 +11,14 @@ const categories = [
 function PackingList({ packingList, updatePackingList }) {
   const [newItem, setNewItem] = useState({
     name: "",
-    category: "Clothes",
+    category: "",
     packed: false,
   });
 
   const handleAddItem = () => {
-    if (newItem.name) {
+    if (newItem.name && newItem.category) {
       updatePackingList([...packingList, { ...newItem, id: Date.now() }]);
-      setNewItem({ name: "", category: "Clothes", packed: false });
+      setNewItem({ name: "", category: "", packed: false });
     }
   };
 
@@ -50,6 +50,9 @@ function PackingList({ packingList, updatePackingList }) {
           value={newItem.category}
           onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
         >
+          <option value="" disabled>
+            Category
+          </option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -63,7 +66,7 @@ function PackingList({ packingList, updatePackingList }) {
           Add Item
         </button>
       </div>
-      <hr className="border-2 my-4 border-[#FBFBEF]"></hr>
+      <hr className="border-2 my-4 border-[#FBFBEF]" />
       {categories.map((category) => (
         <div key={category}>
           <h4 className="font-bold">{category}</h4>

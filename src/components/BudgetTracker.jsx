@@ -13,11 +13,11 @@ function BudgetTracker({ budget, updateBudget }) {
   const [newExpense, setNewExpense] = useState({
     description: "",
     amount: "",
-    category: "Accommodation",
+    category: "Category", // Initial placeholder
   });
 
   const handleAddExpense = () => {
-    if (newExpense.description && newExpense.amount) {
+    if (newExpense.description && newExpense.amount && newExpense.category !== "Category") {
       const updatedBudget = {
         ...budget,
         expenses: [
@@ -30,7 +30,7 @@ function BudgetTracker({ budget, updateBudget }) {
         ],
       };
       updateBudget(updatedBudget);
-      setNewExpense({ description: "", amount: "", category: "Accommodation" });
+      setNewExpense({ description: "", amount: "", category: "Category" });
     }
   };
 
@@ -82,6 +82,9 @@ function BudgetTracker({ budget, updateBudget }) {
             setNewExpense({ ...newExpense, category: e.target.value })
           }
         >
+          <option value="Category" disabled>
+            Category
+          </option>
           {expenseCategories.map((category) => (
             <option key={category} value={category}>
               {category}
