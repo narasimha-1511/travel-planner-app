@@ -27,6 +27,10 @@ function App() {
     );
   };
 
+  const updateTrips = (updatedTrips) => {
+    setTrips(updatedTrips);
+  };
+
   return (
     <Router>
       <div className="pb-10 flex flex-col min-h-screen items-center justify-center bg-[url('assets/Map.svg')] bg-cover bg-fixed">
@@ -45,7 +49,7 @@ function App() {
                     <TripForm addTrip={addTrip} />
                   </div>
                   <div className="bg-[#5A617E] border-white border-4 rounded-custom-div font-outfit w-[90%] sm:w-[68%] md:w-[58%] lg:w-[50%] lg2:w-[45%] custom-xl:w-[34%] shadow-lg mt-5">
-                    <TripList trips={trips} />
+                    <TripList trips={trips} updateTrips={updateTrips} />
                   </div>
                 </>
               }
