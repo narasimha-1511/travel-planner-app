@@ -30,13 +30,20 @@ function TripForm({ addTrip }) {
         className="rounded-lg p-1 pl-3 text-[24px] lg:text-[36px] text-[#151E41] focus:outline-[#151E41]"
         type="date"
         value={startDate}
-        onChange={(e) => setStartDate(e.target.value)}
+        onChange={(e) => {
+          setStartDate(e.target.value);
+          // Reset endDate if the new startDate is greater
+          if (e.target.value > endDate) {
+            setEndDate(""); // Clear endDate if startDate changes to a later date
+          }
+        }}
         required
       />
       <input
         className="rounded-lg p-1 pl-3 text-[24px] lg:text-[36px] text-[#151E41] focus:outline-[#151E41]"
         type="date"
         value={endDate}
+        min={startDate} // Set minimum date for end date based on selected start date
         onChange={(e) => setEndDate(e.target.value)}
         required
       />
