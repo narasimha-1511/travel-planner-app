@@ -12,9 +12,21 @@ Currently, two official plugins are available:
 
 
 ## Table of Contents
+- [Features](#features)
 - [Installation](#installation)
 - [Technologies Used](#technologies-used)
 - [License](#license)
+
+## Features
+
+- **Trip Management**: Add, edit, and delete trips with details such as destination, dates, and category.
+- **Packing List**: Create and manage a packing list for each trip.
+- **Budget Tracker**: Set and monitor trip budgets with customizable currency options.
+- **Photo Gallery**: Upload and organize photos related to each trip.
+- **Itinerary Planning**: Build a detailed itinerary for trips, including daily activities and notes.
+- **Weather Information**: Check weather forecasts for trip destinations to plan accordingly.
+- **Responsive Design**: A user-friendly interface that adapts seamlessly to various screen sizes.
+
 
 ## Installation
 
